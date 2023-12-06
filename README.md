@@ -28,7 +28,7 @@ This repo constains three major components:
 `CUDA` is needed only if you need GPU acceleration, but we highly recommend using it. The installation of these tools can be found on their official websites.
 
 ## Compile
-
+ 
 To compile /DNA_Align/:
 ```bash
 cd DNA_Align
