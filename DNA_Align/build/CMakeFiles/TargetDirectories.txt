@@ -1,0 +1,7 @@
+/Users/davidedisarno/Desktop/SFBio/Progetto/SENSE/DNA_Align/build/CMakeFiles/edit_cache.dir
+/Users/davidedisarno/Desktop/SFBio/Progetto/SENSE/DNA_Align/build/CMakeFiles/rebuild_cache.dir
+/Users/davidedisarno/Desktop/SFBio/Progetto/SENSE/DNA_Align/build/src/CMakeFiles/nw.dir
+/Users/davidedisarno/Desktop/SFBio/Progetto/SENSE/DNA_Align/build/src/CMakeFiles/kmer.dir
+/Users/davidedisarno/Desktop/SFBio/Progetto/SENSE/DNA_Align/build/src/CMakeFiles/eval.dir
+/Users/davidedisarno/Desktop/SFBio/Progetto/SENSE/DNA_Align/build/src/CMakeFiles/edit_cache.dir
+/Users/davidedisarno/Desktop/SFBio/Progetto/SENSE/DNA_Align/build/src/CMakeFiles/rebuild_cache.dir
