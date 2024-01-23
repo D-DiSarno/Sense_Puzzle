@@ -1,82 +1,93 @@
-# SENSE
-Siamese neural network for sequence embedding
+# Progetto "Siamese_puzzle"
 
-## Code Organization
+## Introduzione
 
-This repo constains three major components:
-* siamese.ipynb 
-* select_training_data
-* DNA_Align
-* tools
-* demo
+Benvenuti nel progetto **Siamese_puzzle**, un'applicazione innovativa che sfrutta la potenza delle reti neurali Siamesi per l'embedding di sequenze genomiche. Questo progetto va oltre il semplice embedding, incorporando anche fasi cruciali come l'allineamento delle sequenze e la visualizzazione dei risultati.
 
-`siamese.ipynb` is a notebook that contains the model definition and implementation in Pytorch.
-`select_training_data` is the C++ implementation of the active landmark selection algorithm for preparing training data for SENSE.
-`DNA_Align` constains the binary for evaluating the embedding results.
-`tools` constains some useful python utilities.
-`demo` constains data for demonstration.
+Per ulteriori dettagli tecnici e informazioni approfondite, si consiglia la lettura del nostro **paper associato**. Il paper fornisce una panoramica completa delle metodologie implementate, dei risultati ottenuti e delle considerazioni teoriche alla base del progetto.
 
+## Contenuti del Progetto
+Il progetto comprende i seguenti componenti principali:
 
-## Requirements
+1. **siamese1.ipynb**: Questo notebook dettaglia l'implementazione del modello Siamese utilizzando PyTorch. Include anche elementi chiave e dettagli presenti nel **paper** associato al progetto.
 
-* Clang
-* Cmake
-* Boost
-* Pytorch
-* CUDA
+2. **select_training_data**: Questa directory ospita l'implementazione in C++ dell'algoritmo di selezione attiva dei landmark, fondamentale per la preparazione dei dati di addestramento.
 
-`CUDA` is needed only if you need GPU acceleration, but we highly recommend using it. The installation of these tools can be found on their official websites.
+3. **DNA_Align**: Contiene l'eseguibile per valutare i risultati dell'embedding attraverso l'allineamento delle sequenze.
 
-## Compile
- 
-To compile /DNA_Align/:
-```bash
+4. **tools**: Una raccolta di utility Python che semplificano le operazioni di manipolazione dei dati e preparazione per l'addestramento.
+
+5. **demo**: Questa directory contiene dati di esempio utilizzati per dimostrare il funzionamento del progetto.
+
+## Requisiti
+
+Prima di iniziare, assicuratevi di avere installati i seguenti componenti:
+
+- **Clang**
+- **Cmake**
+- **Boost**
+- **PyTorch**
+- **CUDA** (opzionale ma consigliato per l'accelerazione GPU)
+
+Per informazioni dettagliate su come installare questi strumenti, consultate le rispettive documentazioni ufficiali.
+
+## Compilazione
+
+Per compilare i componenti **/DNA_Align/** e **/select_training_data/**, seguite le istruzioni seguenti:
+
+```python
 cd DNA_Align
 mkdir build && cd build
 cmake .. && make
 ```
-The executable binary should be under `DNA_Align/build/src/`.
-
-
-To compile /select_training_data/:
-```bash
+L'eseguibile si troverà in DNA_Align/build/src/.
+```python
 cd select_training_data
 mkdir build && cd build
 cmake .. && make
 ```
-The executable binary should be under `select_training_data/build/src/`.
+L'eseguibile sarà situato in select_training_data/build/src/.
+## Esecuzione
+L'esecuzione è guidata attraverso il codice Python nel file *main.py*.
+- Crea un set di dati di valutazione da un file FASTA di input (seqs_0.fa).
+Produce coppie di sequenze e le salva in eval.fa.
+Creazione di Coppie di Sequenze:
 
-## Demo
+- Utilizza uno script Python (pair.py) per generare coppie da eval.fa.
+Il risultato è salvato in eval_pair.fa. 
+- Allineamento delle Sequenze:
+Esegue l'allineamento globale delle coppie di sequenze usando l'eseguibile C++ (nw) dalla directory DNA_Align.
+Salva i risultati allineati in eval_aligned.fa.
+Calcolo delle Distanze:
 
-The demo dataset contains 10,000 sequences sampled from RT988 dataset.
-In this demo, we sampled 500 out of 10,000 sequences and compute their pairwise distances for evaluation.
-This process may take a long time due to sequence alignment.
-To prepare the evaluation data:
+- Calcola le distanze tra le sequenze allineate e salva i risultati in un file di testo (eval_dist.txt).
+- Selezione Attiva dei Landmark e Shuffling dei Dati di Addestramento:
+Utilizza l'eseguibile C++ (select_training_data) per eseguire la selezione attiva dei landmark.
+Salva le coppie selezionate e le distanze corrispondenti nei file pair.fa e dist.txt.
+Applica uno shuffling ai dati di addestramento.
 
-```bash
-python tools/sample.py -i demo/seqs.fa -o demo/eval.fa -s 0 -n 500
-python tools/pair.py -i demo/eval.fa -o demo/eval_pair.fa
-./DNA_Align/build/src/nw demo/eval_pair.fa demo/eval_aligned.fa
-python tools/dist.py -i demo/eval_aligned.fa -o demo/eval_dist.txt
+Avvio da Linea di Comando:
+Per avviare l'intero processo da linea di comando, esegui il seguente comando:
+
+```python
+python3 main.py
 ```
+Assicurati di trovarti nella directory principale del progetto e che tutti i prerequisiti siano stati soddisfatti prima di eseguire questo comando.
 
-In this demo, we prepare 20 * 500 training sequence paris and shuffle them.
-To select training data:
-```bash
-./select_training_data/build/src/select_training_data -f demo/seqs.fa -s demo/seqs_ids.txt -p demo/pair.fa -d demo/dist.txt -a 1 -t 20 -n 500
-python tools/shuffle.py -p demo/pair.fa -d demo/dist.txt -s 0
-```
+## Pulizia dataset
+Per poter avere il dataset uniforme è possibile utilizzare il file *clean.py*.
+Di seguito sono riportate le principali funzionalità:
 
-Here is the help for the options:
-```cpp
-options.add_options()
-  ("f,fasta_file", "input fasta file", cxxopts::value<std::string>())
-  ("s,seq_ids_file", "output seq ids file", cxxopts::value<std::string>())
-  ("p,pairs_file", "output pairs file", cxxopts::value<std::string>())
-  ("d,dists_file", "output dists file", cxxopts::value<std::string>())
-  ("a,abundance_threshold", "abundance threshold", cxxopts::value<std::size_t>())
-  ("t,target_num_landmarks", "target number of landmarks", cxxopts::value<std::size_t>())
-  ("n,num_random_sample", "number of random sample", cxxopts::value<std::size_t>())
-```
-
-Run the jupyter notebook for defining, training and evaluating the model.
+- fix_fasta_format:
+Questa funzione aggiorna il formato delle intestazioni nei file FASTA, introducendo il carattere "#" tra il primo e l'ultimo elemento dell'intestazione. Ciò contribuisce a una rappresentazione più coerente delle sequenze genomiche.
+- remove_short_and_sequences_with_N:
+Rimuove sequenze con lunghezza inferiore a 15 nucleotidi e sequenze contenenti il carattere "N". Questa operazione è essenziale per eliminare dati di bassa qualità o informazioni irrilevanti.
+-count_nucleotides:
+Calcola il conteggio totale delle sequenze nucleotidiche presenti in un file FASTA. Questo parametro fornisce una panoramica del volume dei dati genomici.
+## Concatenazione dataset
+Il file *concat.py* permette di unire diversi file in formato FASTA.
+## Notebook "siamese1.ipynb"
+Il notebook siamese1.ipynb contiene l'implementazione del modello Siamese e include elementi e dettagli presenti nel paper "Siamese_puzzle".
+## Contributi e Licenza
+Il progetto è open source e accetta contributi.
+Per ulteriori dettagli sull'embedding, l'allineamento e la visualizzazione dei risultati, consultare il paper associato a questo progetto.
