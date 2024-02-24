@@ -19,7 +19,7 @@ Il progetto comprende i seguenti componenti principali:
 
 5. **demo**: Questa directory contiene dati di esempio utilizzati per dimostrare il funzionamento del progetto.
 
-6. **Qiita**: Nella presente cartella sono presenti i dati in formato FASTA del dataset Qiita.
+6. **Qiita**: Nella presente cartella è possibile accedere ai dati in formato FASTA del dataset Qiita.
 
 8. **Risultati_iperparametri**: Contiene alcuni risultati ottenuti durante la sperimentazione del modello su diverse combinazioni di iperparametri
 
