@@ -19,6 +19,14 @@ Il progetto comprende i seguenti componenti principali:
 
 5. **demo**: Questa directory contiene dati di esempio utilizzati per dimostrare il funzionamento del progetto.
 
+6. **Qiita**: Nella presente cartella sono presenti i dati in formato FASTA del dataset Qiita.
+
+8. **Risultati_iperparametri**: Contiene alcuni risultati ottenuti durante la sperimentazione del modello su diverse combinazioni di iperparametri
+
+9. **prova_siamese.py**
+
+10. **documenti**: All'interno di questa cartella è possibile visionare la relazione relativa allo studio e la presentazione del progetto.
+
 ## Requisiti
 
 Prima di iniziare, assicuratevi di avere installati i seguenti componenti:
@@ -88,6 +96,12 @@ Calcola il conteggio totale delle sequenze nucleotidiche presenti in un file FAS
 Il file *concat.py* permette di unire diversi file in formato FASTA.
 ## Notebook "siamese1.ipynb"
 Il notebook siamese1.ipynb contiene l'implementazione del modello Siamese e include elementi e dettagli presenti nel paper "Siamese_puzzle".
+## prova_siamese.py
+PARLARE
+
+## Autori
+[Mattia d'Argenio](https://github.com/mattiadarg), [Davide Di Sarno](https://github.com/D-DiSarno)
+Contatti: M.dargenio5@studenti.unisa.it, d.disarno3@studenti.unisa.it
 ## Contributi e Licenza
 Il progetto è open source e accetta contributi.
 Per ulteriori dettagli sull'embedding, l'allineamento e la visualizzazione dei risultati, consultare il paper associato a questo progetto.
