@@ -25,7 +25,7 @@ Il progetto comprende i seguenti componenti principali:
 
 9. **prova_siamese.py**
 
-10. **documenti**: All'interno di questa cartella è possibile visionare la relazione relativa allo studio e la presentazione del progetto.
+10. **documenti**: All'interno di questa cartella è possibile visionare la relazione relativa allo studio,la presentazione del progetto e il file di log discusso nella relazione.
 
 ## Requisiti
 
