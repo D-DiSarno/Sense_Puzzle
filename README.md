@@ -9,7 +9,7 @@ Per ulteriori dettagli tecnici e informazioni approfondite, si consiglia la lett
 ## Contenuti del Progetto
 Il progetto comprende i seguenti componenti principali:
 
-1. **siamese1.ipynb**: Questo notebook dettaglia l'implementazione del modello Siamese utilizzando PyTorch. Include anche elementi chiave e dettagli presenti nel **paper** associato al progetto.
+1. **siamese_1.ipynb**: Questo notebook è stato utilizzato nelle fasi iniziali del progetto.
 
 2. **select_training_data**: Questa directory ospita l'implementazione in C++ dell'algoritmo di selezione attiva dei landmark, fondamentale per la preparazione dei dati di addestramento.
 
@@ -95,9 +95,9 @@ Calcola il conteggio totale delle sequenze nucleotidiche presenti in un file FAS
 ## Concatenazione dataset
 Il file *concat.py* permette di unire diversi file in formato FASTA.
 ## Notebook "siamese1.ipynb"
-Il notebook siamese1.ipynb contiene l'implementazione del modello Siamese e include elementi e dettagli presenti nel paper "Siamese_puzzle".
+Il notebook siamese1.ipynb contiene l'implementazione del modello Siamese e include elementi e dettagli presenti nel paper "Sense_puzzle".Riprende il notebook originale presente nella repository di Sense, punto di partenza di questo progetto.
 ## siamese.py
-Il file prova_siamese.py permette l'esecuzione diretta del codice senza l'esecuzione di ogni cella, contiene la versione più aggiornata del codice.
+Il file prova_siamese.py permette l'esecuzione diretta del codice senza l'esecuzione di ogni cella, contiene la versione più aggiornata del codice con il confronto rispetto all'approccio 'Brute force'.
 
 ## Autori
 [Mattia d'Argenio](https://github.com/mattiadarg), [Davide Di Sarno](https://github.com/D-DiSarno)
