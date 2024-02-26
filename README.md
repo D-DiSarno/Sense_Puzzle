@@ -1,8 +1,8 @@
-# Progetto "Siamese_puzzle"
+# Progetto "Sense_puzzle"
 
 ## Introduzione
 
-Benvenuti nel progetto **Siamese_puzzle**, un'applicazione innovativa che sfrutta la potenza delle reti neurali Siamesi per l'embedding di sequenze genomiche. Questo progetto va oltre il semplice embedding, incorporando anche fasi cruciali come l'allineamento delle sequenze e la visualizzazione dei risultati.
+Benvenuti nel progetto **Sense_puzzle**, un'applicazione innovativa che sfrutta la potenza delle reti neurali Siamesi per l'embedding di sequenze genomiche. Questo progetto va oltre il semplice embedding, incorporando anche fasi cruciali come l'allineamento delle sequenze e la visualizzazione dei risultati.
 
 Per ulteriori dettagli tecnici e informazioni approfondite, si consiglia la lettura del nostro **paper associato**. Il paper fornisce una panoramica completa delle metodologie implementate, dei risultati ottenuti e delle considerazioni teoriche alla base del progetto.
 
@@ -21,11 +21,11 @@ Il progetto comprende i seguenti componenti principali:
 
 6. **Qiita**: Nella presente cartella è possibile accedere ai dati in formato FASTA del dataset Qiita.
 
-8. **Risultati_iperparametri**: Contiene alcuni risultati ottenuti durante la sperimentazione del modello su diverse combinazioni di iperparametri
+8. **Risultati_iperparametri**: Contiene alcuni risultati ottenuti durante la sperimentazione del modello su diverse combinazioni di iperparametri.
 
-9. **prova_siamese.py**
+9. **siamese.py**: File eseguibile con l'algoritmo genetico aggiornato.
 
-10. **documenti**: All'interno di questa cartella è possibile visionare la relazione relativa allo studio,la presentazione del progetto e il file di log discusso nella relazione.
+10. **deliverables**: All'interno di questa cartella è possibile visionare la relazione relativa allo studio,la presentazione del progetto e il file di log discusso nella relazione.
 
 ## Requisiti
 
@@ -96,8 +96,8 @@ Calcola il conteggio totale delle sequenze nucleotidiche presenti in un file FAS
 Il file *concat.py* permette di unire diversi file in formato FASTA.
 ## Notebook "siamese1.ipynb"
 Il notebook siamese1.ipynb contiene l'implementazione del modello Siamese e include elementi e dettagli presenti nel paper "Siamese_puzzle".
-## prova_siamese.py
-PARLARE
+## siamese.py
+Il file prova_siamese.py permette l'esecuzione diretta del codice senza l'esecuzione di ogni cella, contiene la versione più aggiornata del codice.
 
 ## Autori
 [Mattia d'Argenio](https://github.com/mattiadarg), [Davide Di Sarno](https://github.com/D-DiSarno)
