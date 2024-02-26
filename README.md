@@ -94,8 +94,8 @@ Rimuove sequenze con lunghezza inferiore a 15 nucleotidi e sequenze contenenti i
 Calcola il conteggio totale delle sequenze nucleotidiche presenti in un file FASTA. Questo parametro fornisce una panoramica del volume dei dati genomici.
 ## Concatenazione dataset
 Il file *concat.py* permette di unire diversi file in formato FASTA.
-## Notebook "siamese1.ipynb"
-Il notebook siamese1.ipynb contiene l'implementazione del modello Siamese e include elementi e dettagli presenti nel paper "Sense_puzzle".Riprende il notebook originale presente nella repository di Sense, punto di partenza di questo progetto.
+## Notebook "siamese_1.ipynb"
+Il notebook siamese_1.ipynb contiene l'implementazione del modello Siamese e include elementi e dettagli presenti nel paper "Sense_puzzle".Riprende il notebook originale presente nella repository di Sense, punto di partenza di questo progetto.
 ## siamese.py
 Il file prova_siamese.py permette l'esecuzione diretta del codice senza l'esecuzione di ogni cella, contiene la versione più aggiornata del codice con il confronto rispetto all'approccio 'Brute force'.
 
